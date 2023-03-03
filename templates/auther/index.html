@@ -20,9 +20,9 @@
   .button {
   display: inline-block;
   border-radius: 4px;
-  background-color: #2324240e;
+  background-color: #141314d9;
   border: none;
-  color: #0c0c0c;
+  /* color: #f51010; */
   text-align: center;
   font-size: 28px;
   padding: 20px;
@@ -30,6 +30,11 @@
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+}
+.button
+{
+    font-size: 20px;
+    color:rgb(222, 229, 228);
 }
 
 .button span {
@@ -56,10 +61,42 @@
   opacity: 1;
   right: 0;
 }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #0b9cd5ad;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
 
  
      section{
-        background-image: url("https://mpm.ph/wp-content/uploads/2020/12/sales-invoice-vs-billing-invoice.jpg");
+        background-image: url("https://invoicebus.com/templates/wp-content/uploads/Business-invoice-template-niana-8.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -74,33 +111,20 @@
 
 <body>
 
-<nav  class="navbar navbar-dark bg-secondary navbar navbar-expand-lg bg-body-tertiary">
-  <a class="navbar-brand" href="#">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
-      </li>
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        
-        </div>
-       
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="/contact">Contact</a>
+  <div class="topnav-right">
+    <a href="#search">Search</a>
+    <a href="/About">About</a>
   </div>
-</nav>
+</div>
+
+<div style="padding-left:16px">
+  
+</div>
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
         
@@ -112,8 +136,6 @@
     </div>
     {% endfor %} 
 
-    
-
 
   <section>
     <h1 class="h1">Welcome to invoice</h1>
@@ -124,6 +146,9 @@
     <button class ="button" type="submit">
       <a href="/signout"><span>Sign-out</span></a>
     </button>
+    <button class ="button" type="submit" style="vertical-align:middle">
+      <a href="/sample"><span>Sample Template</span></a>
+    </button>
 
     {% else %}
     <button class="button" type="submit" style="vertical-align:middle">
@@ -132,6 +157,8 @@
     <button class="button" type="submit" style="vertical-align:middle">
       <a href="/signin"><span>Sign-in</span></a>
     </button>
+    
+
     {% endif %}
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

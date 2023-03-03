@@ -24,8 +24,14 @@ def upload(request):
 
 
 # ----------------
-
-
+def temp2(request):
+    return render(request,'auther/temp2.html')
+def temp1(request):
+    return render(request,'auther/temp1.html')
+def About(request):
+    return render(request,'auther/About.html')
+def contact(request):
+    return render(request,'auther/contact.html')
 def invoice1(request):
     return render(request,'auther/invoice.html')
 def home(request):

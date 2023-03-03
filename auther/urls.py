@@ -10,7 +10,12 @@ urlpatterns = [
     path('invoice',views.invoice1,name='invoice'),
     path('sample',views.sample,name='sample'),
     path('upload', views.upload, name='upload'),
-    path('upload', views.upload, name='upload'),
+    path('temp1', views.temp1, name='temp1'),
+    path('temp2', views.temp2, name='temp2'),
+
+    path('contact', views.contact, name='contact'),
+    path('About', views.About, name='About'),
+    
 
 
 ]
