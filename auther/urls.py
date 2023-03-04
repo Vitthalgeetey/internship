@@ -12,6 +12,7 @@ urlpatterns = [
     path('upload', views.upload, name='upload'),
     path('temp1', views.temp1, name='temp1'),
     path('temp2', views.temp2, name='temp2'),
+    path('form', views.form, name='form'),
 
     path('contact', views.contact, name='contact'),
     path('About', views.About, name='About'),

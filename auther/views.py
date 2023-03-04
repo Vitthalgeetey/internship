@@ -17,13 +17,17 @@ def upload(request):
             handle_uploaded_file(request.FILES['file'])  
             model_instance = student.save(commit=False)
             model_instance.save()
+            print("Succesfull")
             return HttpResponse("File uploaded successfuly")  
     else:  
         student = StudentForm()  
-        return render(request,"auther/upload.html",{'form':student}) 
+        print("Fails")
+        return render(request,"auther/form.html",{'form':student}) 
 
 
 # ----------------
+def form(request):
+    return render(request,'auther/form.html')
 def temp2(request):
     return render(request,'auther/temp2.html')
 def temp1(request):
