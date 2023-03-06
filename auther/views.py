@@ -8,45 +8,30 @@ from django.http import HttpResponse
 
 from .models import Invoice
 
-def generate_invoice(request, invoice_id):
-    invoice = Invoice.objects.get(id=invoice_id)
-    return render(request, 'invoices/invoice.html', {'invoice': invoice})
+from django.shortcuts import render
+from .forms import InvoiceForm
 
-#  form to take file
-from auther.functions import handle_uploaded_file  #functions.py
-from auther.forms import StudentForm #forms.py
-   
-def upload(request):  
-    if request.method == 'POST':  
-        student = StudentForm(request.POST, request.FILES)  
-        if student.is_valid():  
-            handle_uploaded_file(request.FILES['file'])  
-            model_instance = student.save(commit=False)
+def Invoice1(request):
+    if request.method == 'POST':
+        form = InvoiceForm(request.POST)
+        if form.is_valid():
+            # Process form data here
+            model_instance = form.save(commit=False)
             model_instance.save()
             print("Succesfull")
             return HttpResponse("File uploaded successfuly")  
-    else:  
-        student = StudentForm()  
-        print("Fails")
-        return render(request,"auther/form.html",{'form':student}) 
+    else:
+        form = InvoiceForm()
+    return render(request, 'auther/Invoice1.html', {'form': form})
+
+
+
+   
 
 
 
 
-# def s(request):  
-#     print("form called")
-#     if request.method == 'POST':  
-#         student = StudentForm(request.POST, request.FILES)  
-#         if student.is_valid():  
-#             handle_uploaded_file(request.FILES['file'])  
-#             model_instance = student.save(commit=False)
-#             model_instance.save()
-#             print("Succesfull")
-#             return HttpResponse("File uploaded successfuly")  
-#     else:  
-#         student = StudentForm()  
-#         print("Fails")
-#         return render(request,"auther/form.html",{'form':student}) 
+
 
 
 # ----------------
