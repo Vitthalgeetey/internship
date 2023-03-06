@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('contact', views.contact, name='contact'),
     path('About', views.About, name='About'),
-    
+    path('Invoice', views.generate_invoice, name='Invoice'),
 
 
 ]

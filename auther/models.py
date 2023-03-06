@@ -13,3 +13,10 @@ class StudentForm(models.Model):
 
 created_at= models.DateField(auto_now_add=True)
 updated_at =models.DateField(auto_now  = True)
+
+
+class Invoice(models.Model):
+    invoice_number = models.CharField(max_length=20)
+    date = models.DateField()
+    client_name = models.CharField(max_length=100)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
