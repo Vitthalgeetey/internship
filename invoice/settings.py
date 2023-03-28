@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'datetimewidget',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +40,6 @@ INSTALLED_APPS = [
     'auther',
     'user',
     'crispy_forms',
-    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +83,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'pass123',
+        'PASSWORD': 'Tushar@2023',
     }
 }
 
