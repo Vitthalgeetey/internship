@@ -1,6 +1,12 @@
 from django import forms  
+# import datetime 
 from auther.models import StudentForm  #models.py
-from .models import Invoice
+# from .models import Invoice
+
+from .models import Organization
+
+
+# from .models import Post
 class StudentForm(forms.ModelForm):  
     class Meta:  
         model = StudentForm  
@@ -11,8 +17,17 @@ class StudentForm(forms.ModelForm):
             for field_name, field in self.fields.items():
                 field.widget.attrs['class'] = 'form-control'   
                 
+class dateinput(forms.DateInput):
+     input_type = 'date'
+# class org(forms.ModelForm):
+#     class Meta:
+#         model = Post
+#         fields = [Email, Adress, phone, CIN, PAN, TAN, DispayDate, Name, CreateDate,  Active,  WebUrl, city,  state , Country,  Adress ]
 
-class InvoiceForm(forms.ModelForm):
+
+class OrganizationForm(forms.ModelForm):
     class Meta:
-        model = Invoice
-        fields = ['customer_name', 'customer_address', 'customer_contact', 'invoice_date', 'invoice_number']
+        model = Organization
+        fields = ['OrgID','Email', 'Address', 'Phone', 'CIN', 'PAN', 'TAN', 'DisplayName', 'Name', 'CreateDate', 'Active', 'WebUrl', 'City', 'State', 'Country', 'PIN']
+      
+

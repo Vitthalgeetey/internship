@@ -28,3 +28,36 @@ class Invoice(models.Model):
     invoice_date = models.DateField()
     invoice_number = models.CharField(max_length=20)
 
+
+# myapp/models.py
+
+from django.db import models
+
+class Organization(models.Model):
+    OrgID = models.IntegerField(primary_key=True)
+    Email = models.EmailField()
+    Address = models.CharField(max_length=100)
+    Phone = models.CharField(max_length=12)
+    CIN = models.CharField(max_length=10)
+    PAN = models.CharField(max_length=10)
+    TAN = models.CharField(max_length=10)
+    DisplayName = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100)
+    CreateDate = models.DateField()
+    Active = models.BooleanField(default=True)
+    WebUrl = models.URLField()
+    City = models.CharField(max_length=50)
+    State = models.CharField(max_length=50)
+    Country = models.CharField(max_length=50)
+    PIN = models.IntegerField()
+
+# myapp/forms.py
+
+from django import forms
+from .models import Organization
+
+class OrganizationForm(forms.ModelForm):
+    class Meta:
+        model = Organization
+        db_table = 'db.auther_organization'
+        fields = '__all__'

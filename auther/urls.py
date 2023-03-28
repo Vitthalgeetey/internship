@@ -12,12 +12,16 @@ urlpatterns = [
    
     path('temp1', views.temp1, name='temp1'),
     path('temp2', views.temp2, name='temp2'),
+
+    path('succ', views.success, name='succ'),
+    path('org', views.organization_form, name='org'),
+
     
 
     path('contact', views.contact, name='contact'),
     path('About', views.About, name='About'),
     # path('Invoice', views.generate_invoice, name='Invoice'),
-     path('Invoice1', views.Invoice1, name='Invoice1'),
+    #  path('Invoice1', views.Invoice1, name='Invoice1'),
 
 
 ]
