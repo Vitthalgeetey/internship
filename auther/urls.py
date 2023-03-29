@@ -10,7 +10,7 @@ urlpatterns = [
     path('signup',views.signup,name='signup'),
     path('signin',views.signin,name='signin'),
     path('signout',views.signout,name='signout'),
-    path('invoice',views.invoice1,name='invoice'),
+    # path('invoice',views.invoice1,name='invoice'),
     # path('invoice',views.invoice1,name='invoice'),
     # path('sample',views.sample,name='sample'),
    
@@ -22,6 +22,10 @@ urlpatterns = [
     path('invoice', views.invoice, name='invoice'),
 
     path('company', views.company_form, name='company'),
+    path('bank', views.bank_form, name='bank'),
+    path('template', views.template_form, name='template'),
+
+
     
 
     path('contact', views.contact, name='contact'),

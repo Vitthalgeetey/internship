@@ -3,12 +3,13 @@ from django import forms
 
 from .models import company
 from .models import Organization
+from .models import bank
+from .models import template
+from .models import invoice
 
 # ----------org form-----------------
 
 
-from .models import Organization
-from .models import invoice    
 
 class OrganizationForm(forms.ModelForm):
     class Meta:
@@ -28,4 +29,15 @@ class invoiceform(forms.ModelForm):
         model = invoice
         fields = ['Id','InvoiceNumber','InvoiceDate','GeneratedFor','TemplateIdfk','CurrencyType','Bank','itemfk']
       
+
+class bankform(forms.ModelForm):
+    class Meta:
+        model = bank
+        fields = ['ID', 'Name', 'AccNo', 'IFSC', 'SWIFT', 'ORGFK2']
+
+class templateform(forms.ModelForm):
+    class Meta:
+        model = template
+        fields = ['TemplateID','Name','Type','OrgFK','Path', 'Default']
+       
 

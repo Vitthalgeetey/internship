@@ -8,6 +8,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import OrganizationForm
 from .forms import companyForm
+from .forms import bankform
+from .forms import templateform
+
 
 
 
@@ -31,9 +34,9 @@ def organization_form(request):
 def success(request):
     return render(request, 'auther/success.html')
 
+
+
 #---------------company form------------------------
-
-
 def company_form(request):
     if request.method == 'POST':
         form = companyForm(request.POST)
@@ -44,15 +47,6 @@ def company_form(request):
     else:
         form = companyForm()
     return render(request, 'auther/company_form.html', {'form': form})
-
-
-
-
-
-
-
-
-
 
 
 
@@ -68,6 +62,51 @@ def invoice(request):
     else:
         form = invoiceform()
     return render(request, 'auther/invoice_form.html', {'form': form})
+
+
+
+
+#---------------bank form------------------------
+def bank_form(request):
+    if request.method == 'POST':
+        form = bankform(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('success')
+            return HttpResponse("success")
+    else:
+        form = bankform()
+    return render(request, 'auther/bank_form.html', {'form': form})
+
+
+
+
+#---------------template form------------------------
+def template_form(request):
+    if request.method == 'POST':
+        form = templateform(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('success')
+            return HttpResponse("success")
+    else:
+        form = templateform()
+    return render(request, 'auther/template_form.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # ----------------
 def form(request):
