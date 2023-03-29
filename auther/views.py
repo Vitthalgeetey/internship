@@ -5,17 +5,13 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.http import HttpResponse
 
-
-
-# from .models import Invoice
-
-# from django.shortcuts import render
-# from .forms import InvoiceForm
-
-
-
 from django.shortcuts import render, redirect
 from .forms import OrganizationForm
+from .forms import companyForm
+
+
+
+#-------------org form ---------------------------
 
 def organization_form(request):
     if request.method == 'POST':
@@ -31,23 +27,26 @@ def organization_form(request):
 def success(request):
     return render(request, 'auther/success.html')
 
-
-# def Invoice1(request):
-#     if request.method == 'POST':
-#         form = InvoiceForm(request.POST)
-#         if form.is_valid():
-#             # Process form data here
-#             model_instance = form.save(commit=False)
-#             model_instance.save()
-#             print("Succesfull")
-#             return HttpResponse("File uploaded successfuly")  
-#     else:
-#         form = InvoiceForm()
-#     return render(request, 'auther/Invoice1.html', {'form': form})
+#---------------company form------------------------
 
 
+def company_form(request):
+    if request.method == 'POST':
+        form = companyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('success')
+            return HttpResponse("success")
+    else:
+        form = companyForm()
+    return render(request, 'auther/company_form.html', {'form': form})
 
-   
+
+
+
+
+
+
 
 
 
