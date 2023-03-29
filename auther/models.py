@@ -49,12 +49,31 @@ class OrganizationForm(forms.ModelForm):
 
 #------------------ Company form -----------
 class company(models.Model):
-    CompanyID = models.AutoField(primary_key=True)
+    Id= models.AutoField(primary_key=True)
     Address = models.CharField(max_length=100)
     PAN = models.CharField(max_length=10)
     GST = models.CharField(max_length=10)
     Name = models.CharField(max_length=100)
 
+class item(models.Model):
+ Id=models.AutoField(primary_key=True)
+ Name=models.CharField(max_length=100)
+ Description=models.CharField(max_length=100)
+ Value=models.CharField(max_length=100)
+ ValueType=models.CharField(max_length=100)
+ GST=models.IntegerField()
+ SSN=models.IntegerField()
+ HSN=models.IntegerField()
+ TANType=models.CharField(max_length=100)
+
+
+class templatefields(models.Model):
+    Id= models.AutoField(primary_key=True)
+    TemplateIdfk1 = models.IntegerField()
+    FieldName= models.CharField(max_length=10)
+    FieldType = models.CharField(max_length=10)
+    Validation = models.CharField(max_length=100)
+ 
 
 
 class companyForm(forms.ModelForm):
@@ -67,4 +86,16 @@ class invoiceform(forms.ModelForm):
     class Meta:
         model = invoice
         db_table = 'db.auther_invoice'
+        fields = '__all__'
+
+class itemform(forms.ModelForm):
+    class Meta:
+        model = item
+        db_table = 'db.auther_item'
+        fields = '__all__'
+
+class templatefieldsform(forms.ModelForm):
+    class Meta:
+        model = templatefields
+        db_table = 'db.auther_templatefields'
         fields = '__all__'

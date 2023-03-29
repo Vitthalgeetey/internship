@@ -8,6 +8,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import OrganizationForm
 from .forms import companyForm
+from .forms import itemform
+from .forms import templatefieldsform
 
 
 
@@ -45,6 +47,31 @@ def company_form(request):
         form = companyForm()
     return render(request, 'auther/company_form.html', {'form': form})
 
+#---------Item Form----------------
+
+def item_form(request):
+    if request.method == 'POST':
+        form = itemform(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('success')
+            return HttpResponse("success")
+    else:
+        form = itemform()
+    return render(request, 'auther/item_form.html', {'form': form})
+
+#---------templatefields------------
+def templatefields_form(request):
+    if request.method == 'POST':
+        form = templatefieldsform(request.POST)
+        if form.is_valid():
+            form.save()
+        
+            # return redirect('success')
+            return HttpResponse("success")
+    else:
+        form = templatefieldsform()
+    return render(request, 'auther/templatefields_form.html', {'form': form})
 
 
 
