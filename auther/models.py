@@ -9,6 +9,8 @@ models.DateField()
 #------------------ Organization form -----------
 
 
+from django import forms
+
 class Organization(models.Model):
     OrgID = models.IntegerField(primary_key=True)
     Email = models.EmailField()
@@ -27,6 +29,16 @@ class Organization(models.Model):
     Country = models.CharField(max_length=50)
     PIN = models.IntegerField()
 
+class invoice(models.Model):
+
+    Id = models.AutoField(primary_key=True)
+    InvoiceNumber = models.CharField(max_length=255)
+    InvoiceDate = models.DateField()
+    GeneratedFor = models.CharField(max_length=255)
+    TemplateIdfk = models.IntegerField()
+    CurrencyType = models.CharField(max_length=10)
+    Bank = models.CharField(max_length=255)
+    itemfk = models.IntegerField()
 
 
 class OrganizationForm(forms.ModelForm):
@@ -35,22 +47,8 @@ class OrganizationForm(forms.ModelForm):
         db_table = 'db.auther_organization'
         fields = '__all__'
 
-#------------------ Organization form -----------
-
-
-
-class company(models.Model):
-    CompanyID = models.AutoField(primary_key=True)
-    Address = models.CharField(max_length=100)
-    PAN = models.CharField(max_length=10)
-    GST = models.CharField(max_length=10)
-    Name = models.CharField(max_length=100)
-
-
-
-class companyForm(forms.ModelForm):
+class invoiceform(forms.ModelForm):
     class Meta:
-        model = company
+        model = invoice
         db_table = 'db.auther_invoice'
         fields = '__all__'
-
