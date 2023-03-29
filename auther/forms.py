@@ -3,6 +3,9 @@ from django import forms
 
 from .models import company
 from .models import Organization
+from .models import bank
+from .models import template
+from .models import invoice
 
 # ----------org form-----------------
 
@@ -43,3 +46,14 @@ class templatefieldsform(forms.ModelForm):
     class Meta:
         model = templatefields
         fields =['Id','TemplateIdfk1','FieldName','FieldType','Validation']
+class bankform(forms.ModelForm):
+    class Meta:
+        model = bank
+        fields = ['ID', 'Name', 'AccNo', 'IFSC', 'SWIFT', 'ORGFK2']
+
+class templateform(forms.ModelForm):
+    class Meta:
+        model = template
+        fields = ['TemplateID','Name','Type','OrgFK','Path', 'Default']
+       
+

@@ -27,6 +27,15 @@ class Organization(models.Model):
     Country = models.CharField(max_length=50)
     PIN = models.IntegerField()
 
+
+class OrganizationForm(forms.ModelForm):
+    class Meta:
+        model = Organization
+        db_table = 'db.auther_organization'
+        fields = '__all__'
+
+
+# ------------- Invoice --------------------
 class invoice(models.Model):
 
     Id = models.AutoField(primary_key=True)
@@ -39,10 +48,10 @@ class invoice(models.Model):
     itemfk = models.IntegerField()
 
 
-class OrganizationForm(forms.ModelForm):
+class invoiceform(forms.ModelForm):
     class Meta:
-        model = Organization
-        db_table = 'db.auther_organization'
+        model = invoice
+        db_table = 'db.auther_invoice'
         fields = '__all__'
 
 
@@ -82,9 +91,40 @@ class companyForm(forms.ModelForm):
         db_table = 'db.auther_invoice'
         fields = '__all__'
 
-class invoiceform(forms.ModelForm):
+
+
+#------------------ bank form -----------
+class bank(models.Model):
+    ID = models.AutoField(primary_key=True)
+    Name = models.CharField(max_length=100)
+    AccNo = models.CharField(max_length=10)
+    IFSC = models.CharField(max_length=100)
+    SWIFT = models.CharField(max_length=100)
+    ORGFK2 = models.IntegerField()
+
+
+
+class bankForm(forms.ModelForm):
     class Meta:
-        model = invoice
+        model = bank
+        db_table = 'db.auther_invoice'
+        fields = '__all__'
+
+
+#------------------ template form -----------
+class template(models.Model):
+    TemplateID = models.AutoField(primary_key=True)
+    Name = models.CharField(max_length=100)
+    Type = models.CharField(max_length=10)
+    OrgFK = models.IntegerField()
+    Path = models.CharField(max_length=200)
+    Default = models.BooleanField(default=False)
+
+
+
+class templateform(forms.ModelForm):
+    class Meta:
+        model = template
         db_table = 'db.auther_invoice'
         fields = '__all__'
 
