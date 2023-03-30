@@ -120,6 +120,15 @@ class template(models.Model):
     Path = models.CharField(max_length=200)
     Default = models.BooleanField(default=False)
 
+    #------------GenerateInvoice-------
+
+class generateinvoice(models.Model):
+    Id=models.AutoField(primary_key=True)
+    CustomerName = models.CharField(max_length=100)
+    Date = models.DateField()
+    TotalAmount = models.DecimalField(max_digits=8, decimal_places=2)
+    InvoiceNumber=models.IntegerField()
+
 
 
 class templateform(forms.ModelForm):
@@ -139,3 +148,14 @@ class templatefieldsform(forms.ModelForm):
         model = templatefields
         db_table = 'db.auther_templatefields'
         fields = '__all__'
+
+class Generateinvoiceform(forms.ModelForm):
+    class Meta:
+        model = generateinvoice
+        db_table = 'db.auther_generateinvoice'
+        fields = '__all__'
+
+
+
+        
+

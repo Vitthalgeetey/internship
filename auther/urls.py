@@ -27,6 +27,7 @@ urlpatterns = [
     path('templatefields', views.templatefields_form, name='templatefields'),
     path('bank', views.bank_form, name='bank'),
     path('template', views.template_form, name='template'),
+    path('generateinvoice', views.Generateinvoice_form, name='generateinvoice'),
 
 
     

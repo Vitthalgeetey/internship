@@ -12,6 +12,18 @@ from .forms import itemform
 from .forms import templatefieldsform
 from .forms import bankform
 from .forms import templateform
+from .forms import Generateinvoiceform
+
+def Generateinvoice_form(request):
+    if request.method == 'POST':
+        form = Generateinvoiceform(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('success')
+            return HttpResponse("success")
+    else:
+        form = OrganizationForm()
+    return render(request, 'auther/Generateinvoice.html', {'form': form})
 
 
 
