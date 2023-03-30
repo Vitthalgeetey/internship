@@ -14,7 +14,7 @@ from .models import Organization
 from .models import invoice   
 from .models import item 
 from .models import templatefields
-
+from .models import generateinvoice
 
 class OrganizationForm(forms.ModelForm):
     class Meta:
@@ -57,3 +57,7 @@ class templateform(forms.ModelForm):
         fields = ['TemplateID','Name','Type','OrgFK','Path', 'Default']
        
 
+class Generateinvoiceform(forms.ModelForm):
+    class Meta:
+        model = generateinvoice
+        fields = ['Id','CustomerName','Date','TotalAmount','InvoiceNumber']
