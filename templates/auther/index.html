@@ -10,63 +10,65 @@
 
 {% extends "auther/base.html" %}
 {% block content %}
-<div style="padding-left:16px">
+    <div style="padding-left:16px">
   
-</div>
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        
-    
-        <strong>Message:</strong>{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
     </div>
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong>{{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     {% endfor %} 
 
+    <section>
+        <h1 class="h1">Welcome to invoice</h1>
+        {% if user.is_authenticated %}
+            <h3 class="h3"> Hello {{ fname }} </h3>
+            <h4 class="h4"> You're successfully logged in</h4>
 
-  <section>
-    <h1 class="h1">Welcome to invoice</h1>
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/sample"><span>Sample Templates</span></a>
+            </button>
 
-    {% if user.is_authenticated %}
-    <h3 class="h3"> Hello {{ fname }} </h3>
-    <h4 class="h4"> You're successfully logged in</h4>
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/org"><span>add data of org</span></a>
+                <a href="/company"><span>add data of Company</span></a>
+            </button>
 
-    <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/sample"><span>Sample Templates</span></a>
-    </button>
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/invoice"><span>Invoice form</span></a>
+            </button>
 
-    <!-- <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/Invoice1"><span>Generate Invoice</span></a>
-    </button> -->
-    <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/org"><span>add data of org</span></a>
-      <a href="/company"><span>add data of Company</span></a>
-      
-    </button>
-    <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/invoice"><span>Invoice form</span></a>
-    </button>
-  </button>
-  <button class ="button" type="submit" style="vertical-align:middle">
-    <a href="/item"><span>Item form</span></a>
-  </button>
-  <button class ="button" type="submit" style="vertical-align:middle">
-    <a href="/templatefields"><span>Templatefields form</span></a>
-  </button>
-    <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/bank"><span>bank form</span></a>
-    </button>
-    <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/template"><span>templates form</span></a>
-    </button>
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/item"><span>Item form</span></a>
+            </button>
 
-    {% else %}
-    <button class ="button" type="submit" style="vertical-align:middle">
-      <a href="/sample"><span>view Sample Templates</span></a>
-    </button>
-    {% endif %}
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/templatefields"><span>Templatefields form</span></a>
+            </button>
+
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/bank"><span>bank form</span></a>
+            </button>
+
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/template"><span>templates form</span></a>
+            </button>
+
+            <button class ="button" type="submit" style="vertical-align:middle">
+              {% with table_name="auther_template" app_name="auther" model_name="template" %}
+  <a href="{% url 'show_template' table_name app_name model_name %}">ur templates</a>
+{% endwith %}
+            </button>
+        {% else %}
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/sample"><span>view Sample Templates</span></a>
+            </button>
+        {% endif %}   
     </section>
+
 {% endblock %}
 
 </body>

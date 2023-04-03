@@ -1,10 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-
+from django.db import connection
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.http import HttpResponse
-
 from django.shortcuts import render, redirect
 from .forms import OrganizationForm
 from .forms import companyForm
@@ -13,6 +12,10 @@ from .forms import templatefieldsform
 from .forms import bankform
 from .forms import templateform
 from .forms import Generateinvoiceform
+from django.apps import apps
+from django.forms.models import modelform_factory
+from django.forms import ModelChoiceField
+
 
 def Generateinvoice_form(request):
     if request.method == 'POST':
@@ -119,7 +122,6 @@ def bank_form(request):
 
 
 
-
 #---------------template form------------------------
 def template_form(request):
     if request.method == 'POST':
@@ -132,12 +134,58 @@ def template_form(request):
         form = templateform()
     return render(request, 'auther/template_form.html', {'form': form})
 
+def show_template(request, table_name, model_name, app_name):
+    with connection.cursor() as cursor:
+        cursor.execute(f"SELECT * FROM {table_name} LIMIT 1")
+        columns = [col[0] for col in cursor.description]
+        cursor.execute(f"SELECT * FROM {table_name}")
+        rows = cursor.fetchall()
+    return render(request, 'auther/show.html', {'table_name': table_name,'model_name': model_name, 'app_name': app_name, 'columns': columns, 'rows': rows})
+
+def delete_row(request, table_name, app_name, model_name, row_id):
+    with connection.cursor() as cursor:
+        cursor.execute(f"DELETE FROM {table_name} WHERE Id=%s", [row_id])
+    messages.success(request,"the template has been deleted successfully")
+    return redirect('show_template',table_name=table_name , model_name=model_name, app_name=app_name)
 
 
 
 
+def update_row(request, table_name, app_name, model_name, row_id):
+
+    model_class = apps.get_model(app_name, model_name)
+
+    columns = [field.name for field in model_class._meta.fields]
+
+    class CustomFormClass(modelform_factory(model_class, fields=columns)):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for field_name, field in self.fields.items():
+                if isinstance(field, ModelChoiceField):
+                    related_model = field.queryset.model
+                    related_objects = related_model.objects.all()
+                    self.fields[field_name] = ModelChoiceField(queryset=related_objects)
+
+    # Get the row to update
+    row = model_class.objects.filter(Id=row_id).first()
+
+    # If the row doesn't exist, redirect to an error page
+    if not row:
+        return redirect('error')
+
+    # If the request method is POST, update the row and redirect to the updated row's page
+    if request.method == 'POST':
+        form = CustomFormClass(request.POST, instance=row)
+        if form.is_valid():
+            form.save()
+            return redirect('show_template',table_name=table_name , model_name=model_name, app_name=app_name)
 
 
+    # If the request method is GET, render the update form
+    else:
+        form = CustomFormClass(instance=row)
+
+    return render(request, 'auther/update_row.html', {'app_name': app_name, 'model_name': model_name, 'form': form})
 
 
 

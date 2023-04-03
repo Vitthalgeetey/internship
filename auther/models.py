@@ -10,7 +10,7 @@ models.DateField()
 
 
 class Organization(models.Model):
-    OrgID = models.IntegerField(primary_key=True)
+    Id = models.IntegerField(primary_key=True)
     Email = models.EmailField()
     Address = models.CharField(max_length=100)
     Phone = models.CharField(max_length=12)
@@ -42,9 +42,9 @@ class invoice(models.Model):
     InvoiceNumber = models.CharField(max_length=255)
     InvoiceDate = models.DateField()
     GeneratedFor = models.CharField(max_length=255)
-    TemplateIdfk = models.IntegerField()
+    TemplateIdfk2 = models.IntegerField()
     CurrencyType = models.CharField(max_length=10)
-    Bank = models.CharField(max_length=255)
+    bankfk = models.IntegerField()
     itemfk = models.IntegerField()
 
 
@@ -95,12 +95,13 @@ class companyForm(forms.ModelForm):
 
 #------------------ bank form -----------
 class bank(models.Model):
-    ID = models.AutoField(primary_key=True)
+    Id = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=100)
     AccNo = models.CharField(max_length=10)
     IFSC = models.CharField(max_length=100)
     SWIFT = models.CharField(max_length=100)
     ORGFK2 = models.IntegerField()
+    City = models.CharField(max_length=100)
 
 
 
@@ -113,7 +114,7 @@ class bankForm(forms.ModelForm):
 
 #------------------ template form -----------
 class template(models.Model):
-    TemplateID = models.AutoField(primary_key=True)
+    Id = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=100)
     Type = models.CharField(max_length=10)
     OrgFK = models.IntegerField()

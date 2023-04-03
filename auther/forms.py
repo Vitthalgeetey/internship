@@ -19,7 +19,7 @@ from .models import generateinvoice
 class OrganizationForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ['OrgID','Email', 'Address', 'Phone', 'CIN', 'PAN', 'TAN', 'DisplayName', 'Name', 'CreateDate', 'Active', 'WebUrl', 'City', 'State', 'Country', 'PIN']
+        fields = ['Id','Email', 'Address', 'Phone', 'CIN', 'PAN', 'TAN', 'DisplayName', 'Name', 'CreateDate', 'Active', 'WebUrl', 'City', 'State', 'Country', 'PIN']
       
 
 # -----------company form--------------
@@ -32,7 +32,7 @@ class companyForm(forms.ModelForm):
 class invoiceform(forms.ModelForm):
     class Meta:
         model = invoice
-        fields = ['Id','InvoiceNumber','InvoiceDate','GeneratedFor','TemplateIdfk','CurrencyType','Bank','itemfk']
+        fields = ['Id','InvoiceNumber','InvoiceDate','GeneratedFor','TemplateIdfk2','CurrencyType','bankfk','itemfk']
 
 #---------------item-----------
 class itemform(forms.ModelForm):
@@ -49,12 +49,12 @@ class templatefieldsform(forms.ModelForm):
 class bankform(forms.ModelForm):
     class Meta:
         model = bank
-        fields = ['ID', 'Name', 'AccNo', 'IFSC', 'SWIFT', 'ORGFK2']
+        fields = ['Id', 'Name', 'AccNo', 'IFSC', 'SWIFT', 'ORGFK2','City']
 
 class templateform(forms.ModelForm):
     class Meta:
         model = template
-        fields = ['TemplateID','Name','Type','OrgFK','Path', 'Default']
+        fields = ['Id','Name','Type','OrgFK','Path', 'Default']
        
 
 class Generateinvoiceform(forms.ModelForm):
