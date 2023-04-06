@@ -58,14 +58,21 @@
             </button>
 
             <button class ="button" type="submit" style="vertical-align:middle">
-              {% with table_name="auther_template" app_name="auther" model_name="template" %}
-  <a href="{% url 'show_template' table_name app_name model_name %}">ur templates</a>
-{% endwith %}
+                {% with table_name="auther_template" app_name="auther" model_name="template" %}
+                 <a href="{% url 'show_template' table_name app_name model_name %}">ur templates</a>
+                {% endwith %}
             </button>
+            <button class ="button" type="submit" style="vertical-align:middle">
+              {% with table_name="auther_bank" app_name="auther" model_name="bank" %}
+               <a href="{% url 'show_template' table_name app_name model_name %}">bank details</a>
+              {% endwith %}
+          </button>
+
         {% else %}
             <button class ="button" type="submit" style="vertical-align:middle">
                 <a href="/sample"><span>view Sample Templates</span></a>
             </button>
+
         {% endif %}   
     </section>
 
