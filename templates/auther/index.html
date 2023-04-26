@@ -7,10 +7,71 @@
     <title>Document</title>
 </head>
 <body>
+<style>
 
+section {
+      position: relative;
+      height: 1000px;
+      width: 100%;
+    }
+
+    .background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: fade 12s infinite;
+    }
+
+    .image1 {
+      background-image: url("https://elements-cover-images-0.imgix.net/73fe52be-eb3d-464e-838e-c1db5c980519?auto=compress%2Cformat&fit=max&w=1370&s=2abd021ece99533d1589d2e7d5bbad4f.jpg");
+      animation-delay: 0s;
+      opacity: 1;
+    }
+
+    .image2 {
+      background-image: url("https://elements-cover-images-0.imgix.net/237f60e4-507e-4bc8-b992-4a4b149de975?auto=compress%2Cformat&fit=max&w=1370&s=fabf2e013a0207a16f0f25a320e6881a.jpeg");
+      animation-delay: 4s;
+    }
+
+    .image3 {
+      background-image: url("https://elements-preview-images-0.imgix.net/a562eb96-dbb7-467f-8bb0-3186c127bf70?auto=compress%2Cformat&fit=max&w=1370&s=fa82a78e303ed9d81ff4d112b7ca6424.jpg");
+      animation-delay: 8s;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+</style>
 {% extends "auther/base.html" %}
 {% block content %}
-    <div style="padding-left:16px">
+    <!-- <div style="padding-left:16px">
   
     </div>
     {% for message in messages %}
@@ -82,7 +143,7 @@
         {% endif %}   
     </section>
 
-{% endblock %}
+{% endblock %} -->
 
 </body>
 </html> 

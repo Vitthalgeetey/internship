@@ -6,249 +6,249 @@
 	<title>My UI Design</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-	<style>
+<style>
 
-section {
-    position: relative;
-    height: 1000px;
-    width: 100%;
-  }
-
-  .background-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: fade 12s infinite;
-  }
-
-  .image1 {
-    background-image: url("https://assets.materialup.com/uploads/d627b67e-5c37-4f36-b066-221855e7d906/preview.jpg");
-    animation-delay: 0s;
-    opacity: 1;
-  }
-
-  .image2 {
-    background-image: url("IMAGE_URL_HERE");
-    animation-delay: 4s;
-  }
-
-  .image3 {
-    background-image: url("IMAGE_URL_HERE");
-    animation-delay: 8s;
-  }
-
-  @keyframes fade {
-    0% {
-      opacity: 0;
+  /* section {
+      position: relative;
+      height: 1000px;
+      width: 100%;
     }
-    25% {
+
+    .background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: fade 12s infinite;
+    }
+
+    .image1 {
+      background-image: url("https://elements-cover-images-0.imgix.net/73fe52be-eb3d-464e-838e-c1db5c980519?auto=compress%2Cformat&fit=max&w=1370&s=2abd021ece99533d1589d2e7d5bbad4f.jpg");
+      animation-delay: 0s;
       opacity: 1;
     }
-    75% {
-      opacity: 1;
+
+    .image2 {
+      background-image: url("https://elements-cover-images-0.imgix.net/237f60e4-507e-4bc8-b992-4a4b149de975?auto=compress%2Cformat&fit=max&w=1370&s=fabf2e013a0207a16f0f25a320e6881a.jpeg");
+      animation-delay: 4s;
     }
-    100% {
-      opacity: 0;
+
+    .image3 {
+      background-image: url("https://elements-preview-images-0.imgix.net/a562eb96-dbb7-467f-8bb0-3186c127bf70?auto=compress%2Cformat&fit=max&w=1370&s=fa82a78e303ed9d81ff4d112b7ca6424.jpg");
+      animation-delay: 8s;
     }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    } */
+  .dropdown-submenu:hover > .dropdown-menu {
+          margin-left: 100%;
+          margin-top: -30px;
   }
-.dropdown-submenu:hover > .dropdown-menu {
-        margin-left: 100%;
-        margin-top: -30px;
-}
-.dropdown {
+  .dropdown {
+      position: relative;
+    }
+    .dropdown-toggle {
+      display: block;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+      display: none;
+    }
+    .dropdown-menu li {
+      display: block;
+    }
+
+    /* Styles for the open dropdown menu */
+    .open .dropdown-menu {
+      display: block;
+    }
+  header {
+    background-color: #96969e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav li {
+    margin-left: 10px;
     position: relative;
   }
-  .dropdown-toggle {
+
+  nav a {
     display: block;
+    padding: 10px;
+    color: #130303;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
   }
-  .dropdown-menu {
+
+  nav a:hover {
+    color: #240b92;
+  }
+
+  nav ul ul {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 10;
     display: none;
+    background-color: #999797;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  .dropdown-menu li {
-    display: block;
-  }
 
-  /* Styles for the open dropdown menu */
-  .open .dropdown-menu {
-    display: block;
-  }
-header {
-  background-color: #96969e;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav li {
-  margin-left: 10px;
-  position: relative;
-}
-
-nav a {
-  display: block;
-  padding: 10px;
-  color: #130303;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-}
-
-nav a:hover {
-  color: #240b92;
-}
-
-nav ul ul {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  background-color: #999797;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-nav ul ul li {
-  margin: 0;
-  position: relative;
-}
-
-nav ul ul a {
-  padding: 10px;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-}
-
-nav ul ul a:hover {
-  color: #0505c5;
-}
-
-nav li:hover > ul {
-  display: block;
-}
-
-form input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-form button[type="submit"] {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #0099ff;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-form button[type="submit"]:hover {
-  background-color: #0077cc;
-}
-
-nav form {
-  margin-left: auto;
-}
-
-main {
-  padding: 20px;
-  min-height: 500px;
-  display: grid; /* Use a grid layout */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-img:hover { 
-  opacity: 0.8;
-}
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-button {
-  animation: pulse 1s infinite; /* Add animations */
-}
-
-
-section {
+  nav ul ul li {
+    margin: 0;
     position: relative;
-    height: 1000px;
-    width: 100%;
   }
 
-  .background-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+  nav ul ul a {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
   }
 
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: fade 12s infinite;
+  nav ul ul a:hover {
+    color: #0505c5;
   }
 
-  .image1 {
-    background-image: url("https://elements-cover-images-0.imgix.net/73fe52be-eb3d-464e-838e-c1db5c980519?auto=compress%2Cformat&fit=max&w=1370&s=2abd021ece99533d1589d2e7d5bbad4f.jpg");
-    animation-delay: 0s;
-    opacity: 1;
+  nav li:hover > ul {
+    display: block;
   }
 
-  .image2 {
-    background-image: url("https://elements-cover-images-0.imgix.net/237f60e4-507e-4bc8-b992-4a4b149de975?auto=compress%2Cformat&fit=max&w=1370&s=fabf2e013a0207a16f0f25a320e6881a.jpeg");
-    animation-delay: 4s;
+  form input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
   }
 
-  .image3 {
-    background-image: url("https://elements-preview-images-0.imgix.net/a562eb96-dbb7-467f-8bb0-3186c127bf70?auto=compress%2Cformat&fit=max&w=1370&s=fa82a78e303ed9d81ff4d112b7ca6424.jpg");
-    animation-delay: 8s;
+  form button[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0099ff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
   }
-	</style>
+
+  form button[type="submit"]:hover {
+    background-color: #0077cc;
+  }
+
+  nav form {
+    margin-left: auto;
+  }
+
+  main {
+    padding: 20px;
+    min-height: 500px;
+    display: grid; /* Use a grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  img:hover { 
+    opacity: 0.8;
+  }
+
+
+
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  button {
+    animation: pulse 1s infinite; /* Add animations */
+  }
+
+/* 
+  section {
+      position: relative;
+      height: 1000px;
+      width: 100%;
+    }
+
+    .background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: fade 12s infinite;
+    }
+
+    .image1 {
+      background-image: url("https://elements-cover-images-0.imgix.net/73fe52be-eb3d-464e-838e-c1db5c980519?auto=compress%2Cformat&fit=max&w=1370&s=2abd021ece99533d1589d2e7d5bbad4f.jpg");
+      animation-delay: 0s;
+      opacity: 1;
+    }
+
+    .image2 {
+      background-image: url("https://elements-cover-images-0.imgix.net/237f60e4-507e-4bc8-b992-4a4b149de975?auto=compress%2Cformat&fit=max&w=1370&s=fabf2e013a0207a16f0f25a320e6881a.jpeg");
+      animation-delay: 4s;
+    }
+
+    .image3 {
+      background-image: url("https://elements-preview-images-0.imgix.net/a562eb96-dbb7-467f-8bb0-3186c127bf70?auto=compress%2Cformat&fit=max&w=1370&s=fa82a78e303ed9d81ff4d112b7ca6424.jpg");
+      animation-delay: 8s;
+    } */
+</style>
 </head>
 <body>
   <header>
@@ -270,7 +270,13 @@ section {
               <a href="#">Add Data <i class="fas fa-chevron-right"></i></a>
               <ul class="dropdown-menu pull-right">
                 <li><a href="#">Organisation</a></li>
-                <li><a href="#">Bank</a></li>
+                <li> 
+                  <button class ="button" type="submit" style="vertical-align:middle">
+                    {% with table_name="auther_bank" app_name="auther" model_name="bank" %}
+                     <a href="{% url 'show_template' table_name app_name model_name %}">Bank details</a>
+                    {% endwith %}
+                </button>
+                </li>
                 <li><a href="#">Company</a></li>
               </ul>
             </li>
@@ -326,7 +332,9 @@ section {
         </div>
         <!-- rest of the section content goes here -->
         </section>
-	
+{% block content %}
+{% endblock %}
+
 	
 </body>
 </html>
