@@ -271,13 +271,11 @@
               <ul class="dropdown-menu pull-right">
                 <li><a href="#">Organisation</a></li>
                 <li> 
-                  <button class ="button" type="submit" style="vertical-align:middle">
                     {% with table_name="auther_bank" app_name="auther" model_name="bank" %}
                      <a href="{% url 'show_template' table_name app_name model_name %}">Bank details</a>
                     {% endwith %}
-                </button>
                 </li>
-                <li><a href="#">Company</a></li>
+                <li><a href="/company"><span>Company</span></a></li>
               </ul>
             </li>
             <li class="dropdown-submenu">
@@ -295,12 +293,12 @@
           <a href="/signout"><span>Log out</span><i class="fas fa-sign-out-alt"></i></a>
         </li>
   
-        <li>
+        <!-- <li>
           <form method="post" action="/search">
             <input type="text" placeholder="Search...">
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
-        </li>
+        </li> -->
   
         {% else %}
         <li><a href="/Login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
