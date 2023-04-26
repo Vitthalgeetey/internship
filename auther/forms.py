@@ -1,6 +1,4 @@
-from django import forms  
-
-
+from django import forms 
 from .models import company
 from .models import Organization
 from .models import bank

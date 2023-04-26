@@ -26,6 +26,7 @@ def Generateinvoice_form(request):
             return HttpResponse("success")
     else:
         form = OrganizationForm()
+
     return render(request, 'auther/Generateinvoice.html', {'form': form})
 
 
@@ -255,7 +256,7 @@ def signup(request):
 
     return render(request,'auther/signup.html')
 
-def signin(request):
+def Login(request):
         if request.method == "POST":
             username=request.POST['username']
             pass1=request.POST['pass1']
@@ -268,7 +269,7 @@ def signin(request):
                 messages.error(request,"bad credentials")
                 return redirect('home')
 
-        return render(request,'auther/signin.html')
+        return render(request,'auther/Login.html')
 
 def signout(request):
     logout(request)

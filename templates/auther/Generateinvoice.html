@@ -10,7 +10,7 @@
   {% extends "auther/base.html" %}
 
 {% block content %}
-  <h1>generate invoice Form</h1>
+  <h1>Generate Invoice Form</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

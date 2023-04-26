@@ -8,7 +8,6 @@ models.DateField()
 
 #------------------ Organization form -----------
 
-
 class Organization(models.Model):
     Id = models.IntegerField(primary_key=True)
     Email = models.EmailField()
