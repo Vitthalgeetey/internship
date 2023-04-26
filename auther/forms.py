@@ -28,9 +28,13 @@ class companyForm(forms.ModelForm):
 
 #--------------invoice form ------------
 class invoiceform(forms.ModelForm):
+    TemplateIdfk = forms.ModelChoiceField(queryset=template.objects.all())
+    bankfk = forms.ModelChoiceField(queryset=bank.objects.all())
+    ItemFK = forms.ModelChoiceField(queryset=item.objects.all())
+
     class Meta:
         model = invoice
-        fields = ['Id','InvoiceNumber','InvoiceDate','GeneratedFor','TemplateIdfk2','CurrencyType','bankfk','itemfk']
+        fields = ['Id','InvoiceNumber','InvoiceDate','GeneratedFor','TemplateIdfk','CurrencyType','bankfk','ItemFK']
 
 #---------------item-----------
 class itemform(forms.ModelForm):
@@ -41,15 +45,21 @@ class itemform(forms.ModelForm):
 #---------templatefields---------
 
 class templatefieldsform(forms.ModelForm):
+    TemplateIdfk1 = forms.ModelChoiceField(queryset=template.objects.all())
+    
     class Meta:
         model = templatefields
         fields =['Id','TemplateIdfk1','FieldName','FieldType','Validation']
 class bankform(forms.ModelForm):
+    OrgFk2 = forms.ModelChoiceField(queryset=Organization.objects.all())
+
     class Meta:
         model = bank
-        fields = ['Id', 'Name', 'AccNo', 'IFSC', 'SWIFT', 'ORGFK2','City']
+        fields = ['Id', 'Name', 'AccNo', 'IFSC', 'SWIFT', 'OrgFk2','City']
 
 class templateform(forms.ModelForm):
+    OrgFK = forms.ModelChoiceField(queryset=Organization.objects.all())
+
     class Meta:
         model = template
         fields = ['Id','Name','Type','OrgFK','Path', 'Default']
