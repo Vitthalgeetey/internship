@@ -7,6 +7,65 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 	<style>
+
+section {
+    position: relative;
+    height: 1000px;
+    width: 100%;
+  }
+
+  .background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fade 12s infinite;
+  }
+
+  .image1 {
+    background-image: url("https://assets.materialup.com/uploads/d627b67e-5c37-4f36-b066-221855e7d906/preview.jpg");
+    animation-delay: 0s;
+    opacity: 1;
+  }
+
+  .image2 {
+    background-image: url("IMAGE_URL_HERE");
+    animation-delay: 4s;
+  }
+
+  .image3 {
+    background-image: url("IMAGE_URL_HERE");
+    animation-delay: 8s;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 .dropdown-submenu:hover > .dropdown-menu {
         margin-left: 100%;
         margin-top: -30px;
@@ -175,18 +234,18 @@ section {
   }
 
   .image1 {
-    background-image: url("https://assets.materialup.com/uploads/d627b67e-5c37-4f36-b066-221855e7d906/preview.jpg");
+    background-image: url("https://elements-cover-images-0.imgix.net/73fe52be-eb3d-464e-838e-c1db5c980519?auto=compress%2Cformat&fit=max&w=1370&s=2abd021ece99533d1589d2e7d5bbad4f.jpg");
     animation-delay: 0s;
     opacity: 1;
   }
 
   .image2 {
-    background-image: url(".jpg");
+    background-image: url("https://elements-cover-images-0.imgix.net/237f60e4-507e-4bc8-b992-4a4b149de975?auto=compress%2Cformat&fit=max&w=1370&s=fabf2e013a0207a16f0f25a320e6881a.jpeg");
     animation-delay: 4s;
   }
 
   .image3 {
-    background-image: url(".jpg");
+    background-image: url("https://elements-preview-images-0.imgix.net/a562eb96-dbb7-467f-8bb0-3186c127bf70?auto=compress%2Cformat&fit=max&w=1370&s=fa82a78e303ed9d81ff4d112b7ca6424.jpg");
     animation-delay: 8s;
   }
 	</style>
@@ -195,6 +254,7 @@ section {
   <header>
     <nav>
       <ul>
+        <li><h2>Invoice Generator</h2> <li>
         <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="/About">About</a></li>
         <li><a href="/contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
@@ -243,64 +303,29 @@ section {
       </ul>
     </nav>
   </header>
-	<!-- <header>
-		<nav>
-			<ul>
-        
-				<li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
-				<li><a href="/About">About</a></li>
-				<li><a href="/contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+	
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          // JavaScript to toggle the open class on the dropdown parent li element
+          var dropdowns = document.querySelectorAll('.dropdown');
+          dropdowns.forEach(function(dropdown) {
+            var dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            dropdownToggle.addEventListener('click', function(event) {
+              event.preventDefault();
+              dropdown.classList.toggle('open');
+            });
+          });
+        </script>
 
-        {% if user.is_authenticated %}
-				<li class="dropdown">
-          <a href="#" class="dropdown-toggle">Dropdown Menu <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="/sample">Sample Template</a></li>
-            <li class="dropdown-submenu">
-              <a href="#">Subcategories <i class="fas fa-chevron-right"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Subcategory 1</a></li>
-                <li><a href="#">Subcategory 2</a></li>
-                <li><a href="#">Subcategory 3</a></li>
-          <ul>
-        </li>
-		    {% endif %}
-        {% if user.is_authenticated %}
-      <a href="/signout"><span>Log out</span><i class="fas fa-sign-out-alt"></i></a>
-      {% else %}
-    	<li><a href="/Login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-      <li><a href="/signup"><i class="fas fa-user-plus"></i> Signup</a></li>
-      
-      {% endif %}
-				<li>
-					<form  method="post" action="/search">
-						<input type="text" placeholder="Search...">
-						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>
-				</li>
-			</ul>
-		</nav>
-	</header> -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    // JavaScript to toggle the open class on the dropdown parent li element
-    var dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(function(dropdown) {
-      var dropdownToggle = dropdown.querySelector('.dropdown-toggle');
-      dropdownToggle.addEventListener('click', function(event) {
-        event.preventDefault();
-        dropdown.classList.toggle('open');
-      });
-    });
-  </script>
-  <section>
-		<div class="background-container">
-		  <div class="background-image image1"></div>
-		  <div class="background-image image2"></div>
-		  <div class="background-image image3"></div>
-		</div>
-		<!-- rest of the section content goes here -->
-	  </section>
+
+      <section>
+        <div class="background-container">
+          <div class="background-image image1"></div>
+          <div class="background-image image2"></div>
+          <div class="background-image image3"></div>
+        </div>
+        <!-- rest of the section content goes here -->
+        </section>
 	
 	
 </body>
