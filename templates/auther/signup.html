@@ -7,56 +7,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
-    <style media="screen">
-      *,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-   
-    
+
+    <style>
+       
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: #1e90ff;
+  font-family: 'Poppins', sans-serif;
+}
 
-body{
-    background-color: #1e90ff;
+.background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
+
+.background .shape {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.13);
 }
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+
+.background .shape:first-child {
+  top: -100px;
+  left: -100px;
 }
-.shape:first-child{
-    background: linear-gradient(
-        #1845ad,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
+
+.background .shape:last-child {
+  bottom: -100px;
+  right: -100px;
 }
 form{
-    height: 600px;
-    width: 450px;
+    height: 750px;
+    width: 500px; /* increased the width of the form */
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -68,27 +59,39 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
-form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
+/* form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 50px 35px;
+  backdrop-filter: blur(10px);
+} */
+
+form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  color: #101010;
+  margin-bottom: 30px;
 }
 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #010101;
 }
-input{
+
+input[type=email]{
     display: block;
     height: 40px;
     width: 100%;
@@ -99,44 +102,74 @@ input{
     font-size: 14px;
     font-weight: 300;
 }
-::placeholder{
-    color: #e5e5e5;
-}
-button{
-    margin-top: 14px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.social{
-  margin-top: 30px;
-  display: flex;
-}
-.social div{
-  background: red;
-  width: 150px;
+input[type="text"],
+input[type="password"] {
+  display: block;
+  height: 40px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
   border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #ffffff;
 }
 
-    </style>
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 1px solid #ffffff;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #207ceda0;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #207ced;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.social div {
+  background-color: rgba(255, 255, 255, 0.27);
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  color: #eaf0fb;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.social div:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+}
+
+.social .fb {
+  background-color: #4267B2;
+}
+.social .fb:hover {
+  background-color: #3b5998; /* Change background color */
+  color: #fff; /* Change text color */
+  transition: all 0.3s ease-in-out; /* Add transition effect */
+}
+        </style>
+    
+
+   
 </head>
 <body>
     <div class="background">
@@ -148,7 +181,7 @@ button{
         <h3>Signup Here</h3>
 
         <label for="username">Username</label>
-        <input type="text" placeholder="Username" name="username" id="username">
+        <input type="text" placeholder="username" name="username" id="username">
     
         <label for="fname">First Name</label>
         <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" Required>

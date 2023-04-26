@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    
+     <title>Login Page</title>
+  
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+     <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e90ff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background .shape {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.13);
+}
+
+.background .shape:first-child {
+  top: -100px;
+  left: -100px;
+}
+
+.background .shape:last-child {
+  bottom: -100px;
+  right: -100px;
+}
+
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 50px 35px;
+  backdrop-filter: blur(10px);
+}
+
+form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  color: #0d0c0c;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #0e0e0e;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  height: 40px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #0f0f0f;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 1px solid #ffffff;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #207ceda0;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #207ced;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.social div {
+  background-color: rgba(255, 255, 255, 0.27);
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  color: #eaf0fb;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.social div:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+}
+
+.social .fb {
+  background-color: #4267B2;
+}
+.social .fb:hover {
+  background-color: #3b5998; /* Change background color */
+  color: #fff; /* Change text color */
+  transition: all 0.3s ease-in-out; /* Add transition effect */
+}
+
+     </style>
+     
+ </head>
+ <body>
+     <div class="background">
+         <div class="shape"></div>
+         <div class="shape"></div>
+     </div>
+     <form action="/Login" method="post">  
+
+        <!-- <form action="/Login" method="post" onsubmit="return validateForm()"> -->
+          {% csrf_token %} 
+         <h3>Login Here</h3>
+        
+ 
+         <label for="username">Username</label>
+         <input type="text" placeholder="Username" name="username" id="username">
+ 
+         <label for="password">Password</label>
+         <input type="password" placeholder="Password" id="pass1" name="pass1">
+
+         <button type="submit" class="btn btn-primary">Login</button>
+
+         <div id="error-msg" style="display:none; color:red;">Invalid username or password.</div>
+         
+     </form>
+     <!-- <script>
+        function validateForm() {
+            // Get the input fields
+            var username = document.getElementById("username");
+            var pass1 = document.getElementById("password");
+            var errorMsg = document.getElementById("error-msg");
+            
+            
+            if (username.value === "username" && pass1.value === "password") {
+                return true; // Allow the form submission
+            } else {
+                // Display an error message
+                errorMsg.style.display = "block";
+                return false; // Prevent the form submission
+            }
+        }
+    </script> -->
+     
+ </body>
+ </html>

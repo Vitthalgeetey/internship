@@ -27,14 +27,19 @@
         {% if user.is_authenticated %}
             <h3 class="h3"> Hello {{ fname }} </h3>
             <h4 class="h4"> You're successfully logged in</h4>
-
             <button class ="button" type="submit" style="vertical-align:middle">
                 <a href="/sample"><span>Sample Templates</span></a>
             </button>
+            <button class ="button" type="submit" style="vertical-align:middle">
+                <a href="/generateinvoice"><span>Generate Invoice</span></a>
+            </button>
 
             <button class ="button" type="submit" style="vertical-align:middle">
-                <a href="/org"><span>add data of org</span></a>
-                <a href="/company"><span>add data of Company</span></a>
+                <a href="/company"><span>Add data of Company</span></a>
+            </button>
+
+            <button class ="button" type="submit" style="vertical-align:middle">
+            <a href="/org"><span>Add data of org</span></a>
             </button>
 
             <button class ="button" type="submit" style="vertical-align:middle">
@@ -50,27 +55,35 @@
             </button>
 
             <button class ="button" type="submit" style="vertical-align:middle">
-                <a href="/bank"><span>bank form</span></a>
+                <a href="/bank"><span>Bank form</span></a>
             </button>
 
             <button class ="button" type="submit" style="vertical-align:middle">
-                <a href="/template"><span>templates form</span></a>
+                <a href="/template"><span>Templates form</span></a>
             </button>
 
             <button class ="button" type="submit" style="vertical-align:middle">
-              {% with table_name="auther_template" app_name="auther" model_name="template" %}
-  <a href="{% url 'show_template' table_name app_name model_name %}">ur templates</a>
-{% endwith %}
+                {% with table_name="auther_template" app_name="auther" model_name="template" %}
+                 <a href="{% url 'show_template' table_name app_name model_name %}">ur templates</a>
+                {% endwith %}
             </button>
+            <button class ="button" type="submit" style="vertical-align:middle">
+              {% with table_name="auther_bank" app_name="auther" model_name="bank" %}
+               <a href="{% url 'show_template' table_name app_name model_name %}">Bank details</a>
+              {% endwith %}
+          </button>
+
             
         {% else %}
             <button class ="button" type="submit" style="vertical-align:middle">
-                <a href="/sample"><span>view Sample Templates</span></a>
+                <a href="/sample"><span>View Sample Templates</span></a>
             </button>
+
         {% endif %}   
     </section>
 
 {% endblock %}
 
 </body>
-</html>
+</html> 
+
