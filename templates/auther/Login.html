@@ -150,9 +150,9 @@ button[type="submit"]:hover {
          <div class="shape"></div>
          <div class="shape"></div>
      </div>
-     <!-- <form action="/Login" method="post">  -->
+     <form action="/Login" method="post">  
 
-        <form action="/Login" method="post" onsubmit="return validateForm()">
+        <!-- <form action="/Login" method="post" onsubmit="return validateForm()"> -->
           {% csrf_token %} 
          <h3>Login Here</h3>
         
@@ -168,15 +168,15 @@ button[type="submit"]:hover {
          <div id="error-msg" style="display:none; color:red;">Invalid username or password.</div>
          
      </form>
-     <script>
+     <!-- <script>
         function validateForm() {
             // Get the input fields
             var username = document.getElementById("username");
-            var password = document.getElementById("password");
+            var pass1 = document.getElementById("password");
             var errorMsg = document.getElementById("error-msg");
             
-            // Check if the username and password are correct
-            if (username.value === "correct_username" && password.value === "correct_password") {
+            
+            if (username.value === "username" && pass1.value === "password") {
                 return true; // Allow the form submission
             } else {
                 // Display an error message
@@ -184,7 +184,7 @@ button[type="submit"]:hover {
                 return false; // Prevent the form submission
             }
         }
-    </script>
+    </script> -->
      
  </body>
  </html>
