@@ -43,7 +43,7 @@ def organization_form(request):
         if form.is_valid():
             form.save()
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = OrganizationForm()
     return render(request, 'auther/organization_form.html', {'form': form})
@@ -61,7 +61,7 @@ def company_form(request):
         if form.is_valid():
             form.save()
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = companyForm()
     return render(request, 'auther/company_form.html', {'form': form})
@@ -74,7 +74,7 @@ def item_form(request):
         if form.is_valid():
             form.save()
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = itemform()
     return render(request, 'auther/item_form.html', {'form': form})
@@ -87,7 +87,7 @@ def templatefields_form(request):
             form.save()
         
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = templatefieldsform()
     return render(request, 'auther/templatefields_form.html', {'form': form})
@@ -101,7 +101,7 @@ def invoice(request):
         if form.is_valid():
             form.save()
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = invoiceform()
     return render(request, 'auther/invoice_form.html', {'form': form})
@@ -116,7 +116,7 @@ def bank_form(request):
         if form.is_valid():
             form.save()
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = bankform()
     return render(request, 'auther/bank_form.html', {'form': form})
@@ -130,7 +130,7 @@ def template_form(request):
         if form.is_valid():
             form.save()
             # return redirect('success')
-            return HttpResponse("success")
+            return render(request, 'auther/success.html')
     else:
         form = templateform()
     return render(request, 'auther/template_form.html', {'form': form})
