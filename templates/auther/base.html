@@ -161,9 +161,12 @@
     <nav>
       <ul>
         <li><h2>Invoice Generator</h2> <li>
-        <li><a href="/home"><i class="fas fa-home fa"></i> Home</a></li>
+          <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="/About"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="/contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        <!-- <li><a href="/home">Home</a></li>
         <li><a href="/About">About</a></li>
-        <li><a href="/contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        <li><a href="/contact"> Contact Us</a></li> -->
   
         {% if user.is_authenticated %}
         <li class="dropdown">
@@ -223,14 +226,14 @@
           
         </li>
         <li>
-          <a href="/signout"><span>Log out</span><i class="fas fa-sign-out-alt"></i></a>
+          <a href="/signout"><span>Log out</span></a>
         </li>
   
       
   
         {% else %}
-        <li><a href="/Login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-        <li><a href="/signup"><i class="fas fa-user-plus"></i> Signup</a></li>
+        <li><a href="/Login"> Login</a></li>
+        <li><a href="/signup"> Signup</a></li>
         {% endif %}
       </ul>
     </nav>

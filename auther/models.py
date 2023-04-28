@@ -1,8 +1,8 @@
 from django.db import models
 from django import forms
 # from .models import Organization
-
-
+from django.utils.timezone import now
+import datetime
 models.DateField()
 
 
@@ -18,7 +18,7 @@ class Organization(models.Model):
     TAN = models.CharField(max_length=10)
     DisplayName = models.CharField(max_length=100)
     Name = models.CharField(max_length=100)
-    CreateDate = models.DateField()
+    CreateDate = models.DateTimeField(auto_now_add=True,null=True)
     Active = models.BooleanField(default=True)
     WebUrl = models.URLField()
     City = models.CharField(max_length=50)

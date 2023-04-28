@@ -55,6 +55,12 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    <script>
+      // add datepicker to create_date input field
+      document.getElementById("id_create_date").type = "text";
+      document.getElementById("id_create_date").setAttribute("data-provide", "datepicker");
+      document.getElementById("id_create_date").setAttribute("data-date-format", "yyyy-mm-dd");
+    </script>
     <button type="submit">Submit</button>
   </form>
 {% endblock %}

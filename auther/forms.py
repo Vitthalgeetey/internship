@@ -13,10 +13,13 @@ from .models import invoice
 from .models import item 
 from .models import templatefields
 from .models import generateinvoice
+from django.forms.widgets import DateInput
 
 class OrganizationForm(forms.ModelForm):
+    
     class Meta:
         model = Organization
+        exclude = ['CreateDate']
         fields = ['Id','Email', 'Address', 'Phone', 'CIN', 'PAN', 'TAN', 'DisplayName', 'Name', 'CreateDate', 'Active', 'WebUrl', 'City', 'State', 'Country', 'PIN']
       
 
@@ -28,6 +31,7 @@ class companyForm(forms.ModelForm):
 
 #--------------invoice form ------------
 class invoiceform(forms.ModelForm):
+    InvoiceDate = forms.DateField(widget=DateInput(attrs={'type': 'date'}))
     TemplateIdfk = forms.ModelChoiceField(queryset=template.objects.all())
     bankfk = forms.ModelChoiceField(queryset=bank.objects.all())
     ItemFK = forms.ModelChoiceField(queryset=item.objects.all())
